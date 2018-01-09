@@ -28,9 +28,7 @@ namespace ServerTest {
 
     // Listening-Event: Rückmeldung wenn horchen läuft
     function handleListen(): void {
-        console.log(port);
-        port = server.address().port
-        console.log("Server listening");
+        console.log("Server listening on port " + port);
     }
 
     // Request-Event: Verarbeiten der Request und erstellen der Response
