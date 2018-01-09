@@ -38,7 +38,7 @@ var ServerTest;
         let query = Url.parse(_request.url, true).query;
         // ?
         for (let key in query)
-            console.log(key + ": " + query[key] + "<br>");
+            console.log(key + ": " + query[key]);
         // Antwort abschließen und abschicken
         _response.end();
     }
