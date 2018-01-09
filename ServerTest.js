@@ -2,10 +2,13 @@
 const Http = require("http");
 var ServerTest;
 (function (ServerTest) {
+    let port = process.env.PORT;
+    if (port == undefined)
+        port = 8100;
     let server = Http.createServer();
     server.addListener("listening", handleListen);
     server.addListener("request", handleRequest);
-    server.listen(8100);
+    server.listen(port);
     function handleListen() {
         console.log("Server listening");
     }

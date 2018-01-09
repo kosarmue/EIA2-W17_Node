@@ -1,10 +1,13 @@
 import * as Http from "http";
 
 namespace ServerTest {
+    let port: number = process.env.PORT;
+    if (port == undefined)
+        port = 8100;
     let server: Http.Server = Http.createServer();
     server.addListener("listening", handleListen);
     server.addListener("request", handleRequest);
-    server.listen(8100);
+    server.listen(port);
 
     function handleListen(): void {
         console.log("Server listening");
