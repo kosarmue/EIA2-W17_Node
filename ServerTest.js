@@ -16,7 +16,7 @@ var ServerTest;
     server.addListener("listening", handleListen);
     server.addListener("request", handleRequest);
     // Auf dem Port horchen
-    server.listen(0);
+    server.listen(port);
     // Listening-Event: Rückmeldung wenn horchen läuft
     function handleListen() {
         console.log("Server listening on port " + port);
