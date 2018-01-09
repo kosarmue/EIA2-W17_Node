@@ -5,9 +5,6 @@ import * as Url from "url";
 
 namespace ServerTest {
     // Neuer Datentyp AssocStringString: homogenes, assoziatives Array.
-    // Ein String (value) wird einem anderen String (key) zugeordnet
-    // Es können beliebig viele key-value-Paare im Array gespeichert werden
-    // Wird benötigt, um den URL-Query-String leicht weiterverarbeiten zu können
     interface AssocStringString {
         [key: string]: string;
     }
@@ -36,8 +33,10 @@ namespace ServerTest {
         console.log("Ich höre Stimmen!!");
         // Header: Antwort kommt im HTML-Format mit uft-8
         _response.setHeader("content-type", "text/html; charset=utf-8");
-        // Header: Kommunikation mit allen Quellen erlaubt
+        // Header: ?
         _response.setHeader("Access-Control-Allow-Origin", "*");
+        
+        // Response-Body
         _response.write("Ich höre Stimmen!!<br>");
         _response.write("Port: " + port + "<br>");
         _response.write("Method: " + _request.method + "<br>");
@@ -46,7 +45,7 @@ namespace ServerTest {
 
         // Query-Teil der URL wird in homogenes, assoziatives Array überführt
         let query: AssocStringString = Url.parse(_request.url, true).query;
-        // Array durchlaufen und key-value-Paare in Antwort schreiben
+        // ?
         for (let key in query)
             _response.write(key + ": " + query[key] + "<br>");
         
