@@ -43,7 +43,7 @@ namespace ServerTest {
         _response.write("Url: " + _request.url + "<br>");
         _response.write("Headers: " + _request.headers + "<br>");
 
-        // Query-Teil der URL wird in homogenes, assoziatives Array überführt
+        // ?
         let query: AssocStringString = Url.parse(_request.url, true).query;
         // ?
         for (let key in query)
